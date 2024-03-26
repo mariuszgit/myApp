@@ -1,6 +1,6 @@
-const express = require('express')
-const app = express();
-const port = process.env.PORT || 3000;
+// const express = require('express')
+// const app = express();
+// const port = process.env.PORT || 3000;
 
 // app.set('view engine', 'hbs')
 
@@ -11,10 +11,11 @@ const port = process.env.PORT || 3000;
 //     })
 // })
 
-app.get('/contact', (req, res) => {
-    res.send('Strona konaktowa')
-})
+// app.get('/contact', (req, res) => {
+//     res.send('Strona konaktowa')
+// })
 
-app.listen(port, () => {
-    console.log("Listening to port nr " + port + '.');
-})
+// app.listen(port, () => {
+//     console.log("Listening to port nr " + port + '.');
+// })
+console.log('xxx')
