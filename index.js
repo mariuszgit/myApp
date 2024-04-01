@@ -9,6 +9,7 @@ io.on('connection', socket => {
     console.log('connected to socket');
     console.log(socket.id);
 })
+console.log(port);
 
 app.get('/', (req, res) => {
     res.send('Strona główna')
