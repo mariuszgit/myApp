@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express();
 const port = process.env.PORT || 3000;
-const { io } = require('socket.io')(port)
+const io = require('socket.io')(port)
 
 // app.set('view engine', 'hbs')
 
