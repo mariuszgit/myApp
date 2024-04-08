@@ -1,29 +1,12 @@
-const express = require('express')
+const express = require('express');
+const path = require('path');
 const app = express();
-const http = require('http');
-const server = http.createServer(app);
-const { Server } = require("socket.io")
-const io = new Server(server);
-const port = process.env.PORT || 3000;
-// const io = require('socket.io')(server, {
-//     cors: {
-//         origin: ['http://127.0.0.1:5173'],
-//     }
-// })
-
-
-io.on('connection', socket => {
-    console.log('connected to socket');
-    console.log(socket.id);
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
+const port = process.env.PORT || 3001;
+app.use(express.static(path.join(__dirname, '../../build')));
+app.get('/', (req, res, next) => res.sendFile(__dirname + './index.html'));
+io.on('connection', function(socket){
+io.emit('message from server', 'message from server - it works!')
 })
-console.log(port);
-
-app.get('/', (req, res) => {
-    res.send('Strona główna')
-
-})
-
-
-app.listen(port, () => {
-    console.log("Listening to port nr " + port + '.');
-})
+server.listen(port);
